@@ -37,3 +37,5 @@ minus(p(X), s(Z)) :- minus(X,Z).
 
 % Exercise 4
 add2(-X, Y, Z) :- minus(X, Xminus), add2(Xminus, Y, Z).
+
+% Exercise 5
