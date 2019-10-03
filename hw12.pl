@@ -20,3 +20,12 @@ add2(p(X)+s(Y), P, Z) :- add2(X, Y, A), add2(A, P, Z).
 add2(s(X)+p(Y), P, Z) :- add2(X, Y, A), add2(A, P, Z).
 add2(X, Y, Z) :- add(X, Y, Z).
 add2(p(X), Y, p(Z)) :- add2(X,Y,Z).
+
+% Exercise 3
+minus(0, 0).
+minus(s(X), p(Z)) :- minus(X,Z).
+minus(s(p(X)), Z) :- minus(X, Z).
+minus(p(s(X)), Z) :- minus(X, Z).
+minus(p(X), s(Z)) :- minus(X,Z).
+
+% Exercise 4
