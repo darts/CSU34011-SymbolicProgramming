@@ -1,5 +1,6 @@
 % suppress warnings **
 :- discontiguous add2/3.
+:- discontiguous minus/2.
 % suppress warnings **
 
 
@@ -39,3 +40,6 @@ minus(p(X), s(Z)) :- minus(X,Z).
 add2(-X, Y, Z) :- minus(X, Xminus), add2(Xminus, Y, Z).
 
 % Exercise 5
+subtract(X, Y, Z) :- minus(Y, Yminus), add2(X, Yminus, Z).
+minus(-X, Z) :- add(X, 0, Z).
+
