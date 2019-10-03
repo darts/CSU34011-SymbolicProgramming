@@ -16,6 +16,7 @@ add2(P, X+Y, Z) :- add2(X+Y, P, Z).
 % Exercise 2
 add2(p(s(X)), Y, Z) :- add2(X, Y, Z).
 add2(Y, s(p(X)), Z) :- add2(X, Y, Z).
-add2(p(X)+s(Y), P, Z) :- add2(X+Y, P, Z).
-add2(s(X)+p(Y), P, Z) :- add2(X+Y, P, Z).
+add2(p(X)+s(Y), P, Z) :- add2(X, Y, A), add2(A, P, Z).
+add2(s(X)+p(Y), P, Z) :- add2(X, Y, A), add2(A, P, Z).
 add2(X, Y, Z) :- add(X, Y, Z).
+add2(p(X), Y, p(Z)) :- add2(X,Y,Z).
