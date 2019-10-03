@@ -1,7 +1,13 @@
+% suppress warnings **
+:- discontiguous add2/3.
+% suppress warnings **
+
+
 numeral(0).
 numeral(s(X)) :- numeral(X).
 numeral(X+Y) :- numeral(X), numeral(Y).
 numeral(p(X)) :- numeral(X).
+numeral(-X) :- numeral(X).
 
 add(0,X,X).
 add(s(X),Y,s(Z)) :- add(X,Y,Z).
@@ -29,3 +35,5 @@ minus(p(s(X)), Z) :- minus(X, Z).
 minus(p(X), s(Z)) :- minus(X,Z).
 
 % Exercise 4
+add2(-X, Y, Z) :- minus(X, Xminus), add2(Xminus, Y, Z).
+add2(p(X), s(Y), Z) :- add2(X,Y,Z).
