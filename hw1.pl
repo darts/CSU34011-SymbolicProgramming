@@ -44,9 +44,13 @@ add2(-X, Y, Z) :- minus(X, Xminus), add2(Xminus, Y, Z).
 
 % Exercise 5
 subtract(X, Y, Z) :- minus(Y, Yminus), add2(X, Yminus, Z).
-minus(-X, Z) :- add(X, 0, Z).
+minus(-X, Z) :- add2(X, 0, Z).
 
 % Exercise 6
 add2(X-Y, P, Z) :- subtract(X,Y,A), add2(A, P, Z).
-minus(X-Y, Z) :- subtract(X, Y, A), minus(A, Z).
+minus(X-Y, Z) :- add2(X-Y, 0, A), minus(A, Z).
+
+% possible alt.
+% minus(X-Y, Z) :- subtract(X, Y, A), minus(A, Z).
+
 % minus(X+Y, Z) :- add2(X, Y, A), minus(A,Z). 
