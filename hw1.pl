@@ -14,12 +14,7 @@ numeral(X-Y) :- numeral(X), numeral(Y).
 add(0,X,X).
 add(s(X),Y,s(Z)) :- add(X,Y,Z).
 
-
-% ****test
-% add2(-(X-Y), P, Z) :- minus(X-Y, A), add2(A, P, Z).
 add2(-(X-Y), P, Z) :- subtract(X, Y, A), minus(A, B), add2(B, P, Z).
-% ***test
-
 
 % Exercise 1
 add2(X+Y, P+Q, Z) :- add(X, Y, A), add(P, Q, B), add(A, B, Z).
@@ -39,10 +34,10 @@ add2(p(X), Y, p(Z)) :- add2(X,Y,Z).
 
 % Exercise 3
 minus(0, 0).
-minus(s(X), p(Z)) :- minus(X,Z).
 minus(s(p(X)), Z) :- minus(X, Z).
 minus(p(s(X)), Z) :- minus(X, Z).
 minus(p(X), s(Z)) :- minus(X,Z).
+minus(s(X), p(Z)) :- minus(X,Z).
 
 
 % Exercise 6
@@ -51,16 +46,7 @@ minus(X-Y, Z) :- add2(X-Y, 0, A), minus(A, Z).
 
 % Exercise 4
 add2(-X, Y, Z) :- minus(X, Xminus), add2(Xminus, Y, Z).
-% add2(-X, Y, Z) :- add2(X, 0, A), minus(A, Xminus), add2(Xminus, Y, Z).
-
 
 % Exercise 5
 subtract(X, Y, Z) :- minus(Y, Yminus), add2(X, Yminus, Z).
 minus(-X, Z) :- add2(X, 0, Z).
-
-
-
-% possible alt.
-% minus(X-Y, Z) :- subtract(X, Y, A), minus(A, Z).
-
-% minus(X+Y, Z) :- add2(X, Y, A), minus(A,Z). 
