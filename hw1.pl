@@ -1,16 +1,3 @@
-% suppress warnings **
-:- discontiguous add2/3.
-:- discontiguous minus/2.
-% suppress warnings **
-
-
-numeral(0).
-numeral(s(X)) :- numeral(X).
-numeral(X+Y) :- numeral(X), numeral(Y).
-numeral(p(X)) :- numeral(X).
-numeral(-X) :- numeral(X).
-numeral(X-Y) :- numeral(X), numeral(Y).
-
 add(0,X,X).
 add(s(X),Y,s(Z)) :- add(X,Y,Z).
 
