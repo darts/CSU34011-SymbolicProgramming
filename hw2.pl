@@ -29,3 +29,5 @@ pet('snail') --> [snail].
 pet('jaguar') --> [jaguar].
 pet('zebra') --> [zebra].
 % ---    ---
+
+% --- Q3 ---
