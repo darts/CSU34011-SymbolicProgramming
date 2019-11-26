@@ -31,3 +31,8 @@ pet('zebra') --> [zebra].
 % ---    ---
 
 % --- Q3 ---
+mkList(0, []).
+mkList(Num, [Num|List]) :- Temp is Num-1, Num > 0, mkList(Temp, List).
+
+s(0) --> [].
+s(Num) --> {mkList(Num, List)}, [Temp], {member(Temp, List)}, {Remainder is Num-Temp}, s(Remainder).
