@@ -19,3 +19,26 @@ ssubL([L|LS], 0, E, [L|X]) :- 0 =:= E, getFirst(LS, X); ssubL(LS, 0, E-1, X).
 :- dynamic harmonic/2.
 harmonic(1, 1):-!.
 harmonic(N, H) :- N1 is N-1, harmonic(N1, H1), H is H1 + 1/N, asserta(harmonic(N, H):-!), !.
+
+member(X, [X|_]). 
+member(X, [_|XS]) :- member(X, XS).
+nonmember(X, [Y]) :- \+member(X, [Y]).
+
+memb(X, [_|T]):- memb(X, T).
+memb(X, [X|_]).
+
+% subl(_, 0, 0, []).
+% subl([L|LS], 0, E, [L|R]) :- E1 is E-1, subl(LS, 0, E1, R).
+% subl([L|LS], B, E, R) :- B1 is B-1, B1 > 0, E1 is E-1, subl(LS, B1, E1, R).
+
+% harmonic(1,1).
+% harmonic(N, H) :- N1 is N-1,
+
+add(0, 0, _).
+add(succ(X), Y, succ(Z)) :- add(X, Y, Z).
+
+
+edge(a, b).
+edge(b, c).
+
+symEdge(X, Y) :- edge(X, Y); edge(Y, X).
